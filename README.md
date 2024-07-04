@@ -23,7 +23,7 @@ A fullstack Next.js application to browse and order meals. This project demonstr
 
 ## Demo
 
-Check out the live demo: [Next.js Meals](https://nextjs-meals-ruby.vercel.app)
+Check out the live demo: [Next.js Meals](https://nextjs-meals-six.vercel.app)
 
 ## Installation
 
