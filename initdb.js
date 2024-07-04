@@ -200,18 +200,19 @@ db.prepare(`
     )
 `).run();
 
+async function initData() {
   const stmt = db.prepare(`
-    INSERT INTO meals VALUES (
-      null,
-      @slug,
-      @title,
-      @image,
-      @summary,
-      @instructions,
-      @creator,
-      @creator_email
-    )
-  `);
+      INSERT INTO meals VALUES (
+         null,
+         @slug,
+         @title,
+         @image,
+         @summary,
+         @instructions,
+         @creator,
+         @creator_email
+      )
+   `);
 
   for (const meal of dummyMeals) {
     stmt.run(meal);
