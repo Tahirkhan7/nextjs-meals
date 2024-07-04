@@ -1,5 +1,8 @@
 const sql = require('better-sqlite3');
+const path = require('path');
+
 const db = sql(path.resolve(__dirname, 'meals.db'));
+
 
 const dummyMeals = [
   {
