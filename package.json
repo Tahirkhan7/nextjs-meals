@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node initdb.js",
     "build": "node initdb.js && next build",
     "start": "next start",
     "lint": "next lint"
