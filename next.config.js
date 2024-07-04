@@ -10,6 +10,11 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    outputFileTracingIncludes: {
+      '/api/another': ['./necessary-folder/**/*'],
+    },
+  },
 };
 
 module.exports = nextConfig;
