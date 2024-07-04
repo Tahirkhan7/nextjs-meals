@@ -1,29 +1,12 @@
 const sql = require('better-sqlite3');
 const path = require('path');
 
+// Set the database path to the writable /tmp directory
 const dbPath = path.join('/tmp', 'meals.db');
 const db = sql(dbPath);
 
 console.log('Database path:', dbPath);
 
-const tableExists = db.prepare(`
-  SELECT name FROM sqlite_master WHERE type='table' AND name='meals'
-`).get();
-
-if (!tableExists) {
-  db.prepare(`
-    CREATE TABLE IF NOT EXISTS meals (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      slug TEXT NOT NULL UNIQUE,
-      title TEXT NOT NULL,
-      image TEXT NOT NULL,
-      summary TEXT NOT NULL,
-      instructions TEXT NOT NULL,
-      creator TEXT NOT NULL,
-      creator_email TEXT NOT NULL
-    )
-  `).run();
-  
 const dummyMeals = [
   {
     title: 'Juicy Cheese Burger',
