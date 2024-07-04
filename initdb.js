@@ -197,8 +197,13 @@ async function initData() {
       )
    `);
 
-  for (const meal of dummyMeals) {
-    stmt.run(meal);
+  try {
+    for (const meal of dummyMeals) {
+      stmt.run(meal);
+    }
+    console.log("Database initialized successfully");
+  } catch (error) {
+    console.error("Error initializing database: ", error);
   }
 }
 
