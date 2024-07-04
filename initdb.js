@@ -1,11 +1,5 @@
 const sql = require('better-sqlite3');
-const path = require('path');
-
-// Set the database path to the writable /tmp directory
-const dbPath = path.join('/tmp', 'meals.db');
-const db = sql(dbPath);
-
-console.log('Database path:', dbPath);
+const db = sql('meals.db');
 
 const dummyMeals = [
   {
@@ -197,13 +191,8 @@ async function initData() {
       )
    `);
 
-  try {
-    for (const meal of dummyMeals) {
-      stmt.run(meal);
-    }
-    console.log("Database initialized successfully");
-  } catch (error) {
-    console.error("Error initializing database: ", error);
+  for (const meal of dummyMeals) {
+    stmt.run(meal);
   }
 }
 
